@@ -9,7 +9,7 @@
 compile_settings(SettingsList) ->
     Forms = get_settings_code(SettingsList),
     %% for deubgging only
-    % file:write_file("/tmp/erlpool_globals_gen.erl", erl_prettypr:format(erl_syntax:form_list(Forms))),
+    file:write_file("/tmp/erlpool_globals_gen.erl", erl_prettypr:format(erl_syntax:form_list(Forms))),
     case merl:compile_and_load(Forms) of
         {ok, _Bin} ->
             ok;
